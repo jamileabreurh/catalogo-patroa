@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo | A Patroa dos Empregos</title>
+  <meta name="description" content="Consultoria de Carreira Estratégica com Jamile Abreu — A Patroa dos Empregos. Reposicionamento profissional, currículo ATS, LinkedIn, entrevistas e busca ativa de vagas." />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --navy: #1C2B3A;
+      --gold: #C4A36B;
+      --gold-soft: #E7D4AA;
+      --cream: #F5F0E8;
+      --paper: #FDFAF4;
+      --ink: #1C1A15;
+      --muted: #6E6356;
+      --line: #E2D8C8;
+      --green: #2D4A3E;
+      --wine: #3D2B1A;
+      --purple: #2B1A3D;
+      --shadow: 0 18px 45px rgba(28,43,58,0.12);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+
+    /* HERO */
+    .hero{min-height:100vh;background:radial-gradient(circle at 88% 10%,rgba(196,163,107,.22),transparent 28%),radial-gradient(circle at 18% 88%,rgba(196,163,107,.11),transparent 30%),linear-gradient(135deg,#162332 0%,#1C2B3A 48%,#263A4C 100%);color:var(--cream);padding:54px 7vw 60px;position:relative;display:flex;flex-direction:column;gap:60px}
+    .hero::before{content:'';position:absolute;inset:28px;border:1px solid rgba(196,163,107,.22);border-radius:32px;pointer-events:none}
+    .hero-top{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+    .brand-mark{display:inline-flex;align-items:center;gap:12px;color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:2.8px;font-weight:700}
+    .brand-dot{width:10px;height:10px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 8px rgba(196,163,107,.12);flex-shrink:0}
+    .hero-pills{display:flex;gap:8px;flex-wrap:wrap}
+    .mini-pill{border:1px solid rgba(245,240,232,.18);background:rgba(245,240,232,.06);color:rgba(245,240,232,.78);border-radius:999px;padding:7px 14px;font-size:12px}
+    .hero-body{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);gap:48px;align-items:center}
+    .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:700;margin-bottom:20px}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,6.5vw,82px);line-height:.97;letter-spacing:-1.5px;margin-bottom:24px;animation:fadeUp .7s ease both}
+    .hero h1 em{color:var(--gold);font-style:italic;font-weight:500}
+    .hero-lead{color:rgba(245,240,232,.70);font-size:clamp(15px,1.6vw,18px);font-weight:300;max-width:600px;margin-bottom:36px;line-height:1.65;animation:fadeUp .7s .12s ease both}
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;animation:fadeUp .7s .22s ease both}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;padding:14px 26px;font-size:13px;font-weight:700;letter-spacing:.3px;transition:transform .2s,box-shadow .2s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 12px 28px rgba(196,163,107,.30)}
+    .btn-ghost{border:1px solid rgba(245,240,232,.28);color:var(--cream);background:transparent}
+    .btn-navy{border:1px solid #D4C8B0;color:var(--navy);background:transparent}
+
+    .hero-aside{background:rgba(245,240,232,.08);border:1px solid rgba(196,163,107,.26);border-radius:28px;padding:30px;animation:fadeUp .7s .32s ease both}
+    .aside-title{font-family:'Playfair Display',serif;color:var(--gold);font-size:24px;line-height:1.15;margin-bottom:14px}
+    .aside-desc{color:rgba(245,240,232,.65);font-size:14px;margin-bottom:24px;line-height:1.6}
+    .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .stat{background:rgba(245,240,232,.07);border:1px solid rgba(245,240,232,.10);border-radius:16px;padding:16px}
+    .stat strong{display:block;font-family:'Playfair Display',serif;color:var(--cream);font-size:26px;line-height:1;margin-bottom:4px}
+    .stat span{color:rgba(245,240,232,.50);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:700}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:30;background:rgba(245,240,232,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(14px);padding:11px 7vw;display:flex;gap:8px;overflow-x:auto}
+    .nav a{flex:0 0 auto;border:1px solid #D4C8B0;color:#5A5248;border-radius:999px;padding:7px 15px;font-size:12px;font-weight:700;transition:all .2s;white-space:nowrap}
+    .nav a:hover{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+
+    /* SECTIONS */
+    section{padding:80px 7vw}
+    .label{color:#8B7355;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:3px;margin-bottom:12px}
+    h2{font-family:'Playfair Display',serif;font-size:clamp(32px,3.8vw,54px);line-height:1.05;color:var(--navy);letter-spacing:-.8px}
+    h2 em{color:var(--gold);font-style:italic;font-weight:500}
+    .section-intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(260px,1fr);gap:36px;align-items:end;margin-bottom:36px}
+    .section-sub{color:var(--muted);font-size:16px;line-height:1.65}
+
+    /* QUEM SOU */
+    .about{background:var(--cream)}
+    .about-grid{display:grid;grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);gap:20px}
+    .sig-card{background:var(--navy);border-radius:28px;padding:34px;position:relative;overflow:hidden;min-height:400px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+    .sig-card::after{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(196,163,107,.12);right:-70px;top:-60px}
+    .sig-card h3{position:relative;z-index:2;font-family:'Playfair Display',serif;color:var(--gold);font-size:32px;line-height:1.1;margin-bottom:16px}
+    .sig-card p{position:relative;z-index:2;color:rgba(245,240,232,.70);font-size:15px;line-height:1.65}
+    .signature{position:relative;z-index:2;font-family:'Playfair Display',serif;font-style:italic;color:rgba(196,163,107,.75);font-size:22px;margin-top:30px}
+    .about-text{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:var(--shadow)}
+    .about-text p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:16px}
+    .about-text strong{color:var(--navy)}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+    .badge{background:#F3E8D7;border:1px solid #E4D4BA;border-radius:999px;padding:8px 16px;font-size:12px;font-weight:700;color:#7A5C2E;text-transform:uppercase;letter-spacing:1px}
+
+    /* SERVIÇOS */
+    .services{background:#EFE7DB}
+    .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .svc{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+    .svc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(28,43,58,.13)}
+    .svc-num{position:absolute;right:22px;top:14px;font-family:'Playfair Display',serif;font-size:52px;font-weight:800;color:rgba(196,163,107,.13);line-height:1}
+    .svc-tag{width:fit-content;background:rgba(196,163,107,.15);color:#8B6B30;border-radius:999px;padding:5px 12px;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+    .svc h3{font-family:'Playfair Display',serif;color:var(--navy);font-size:24px;line-height:1.1;position:relative;z-index:1}
+    .svc p{color:var(--muted);font-size:13.5px;line-height:1.6;position:relative;z-index:1}
+    .svc-items{display:grid;gap:8px;margin-top:auto}
+    .svc-item{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:#4F473E}
+    .chk{color:var(--gold);font-weight:800;line-height:1.3}
+
+    /* MÉTODO */
+    .method{background:var(--navy);color:var(--cream);position:relative;overflow:hidden}
+    .method::before{content:'';position:absolute;left:-100px;bottom:-100px;width:300px;height:300px;border-radius:50%;background:rgba(196,163,107,.10)}
+    .method .label{color:var(--gold)}
+    .method h2{color:var(--cream)}
+    .method .section-sub{color:rgba(245,240,232,.65)}
+    .method-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:38px}
+    .m-card{background:rgba(245,240,232,.07);border:1px solid rgba(196,163,107,.20);border-radius:22px;padding:22px 18px;min-height:200px}
+    .m-letter{font-family:'Playfair Display',serif;color:var(--gold);font-size:40px;line-height:1;margin-bottom:12px}
+    .m-card h3{color:var(--cream);font-size:14px;font-weight:700;margin-bottom:8px}
+    .m-card p{color:rgba(245,240,232,.55);font-size:12px;line-height:1.55}
+
+    /* STRIP */
+    .strip{background:var(--navy);padding:44px 7vw;display:grid;grid-template-columns:1fr 1.8fr;gap:28px;align-items:center}
+    .strip h2{color:var(--cream);font-size:clamp(28px,3vw,44px)}
+    .strip p{color:rgba(245,240,232,.65);font-size:15px;line-height:1.65}
+
+    /* PÚBLICO */
+    .audiences{background:#EFE7DB}
+    .aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .aud{padding:30px;border-radius:26px;background:var(--paper);border:1px solid var(--line)}
+    .aud:nth-child(2){background:var(--wine);border-color:transparent}
+    .aud:nth-child(3){background:var(--purple);border-color:transparent}
+    .aud:nth-child(4){background:var(--navy);border-color:transparent}
+    .aud h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--navy);margin-bottom:10px;line-height:1.1}
+    .aud:nth-child(n+2) h3{color:var(--gold-soft)}
+    .aud p{color:var(--muted);font-size:14px;line-height:1.6}
+    .aud:nth-child(n+2) p{color:rgba(245,240,232,.65)}
+
+    /* CTA */
+    .cta{background:var(--cream);padding:80px 7vw;text-align:center}
+    .cta-box{max-width:900px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:32px;padding:52px 48px;box-shadow:var(--shadow)}
+    .cta-box h2{margin-bottom:16px}
+    .cta-box > p{color:var(--muted);font-size:16px;max-width:680px;margin:0 auto 32px;line-height:1.65}
+    .cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+    .contacts{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+    .chip{background:#F2E7D4;border:1px solid #E3D1B0;color:var(--navy);border-radius:999px;padding:9px 16px;font-size:12.5px;font-weight:700}
+    .fine{margin-top:28px;color:#9B8870;font-size:11.5px;line-height:1.65;max-width:700px;margin-left:auto;margin-right:auto}
+
+    /* FOOTER */
+    footer{background:var(--navy);color:rgba(245,240,232,.55);text-align:center;padding:30px 7vw;font-size:12px}
+    footer strong{display:block;font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:22px;margin-bottom:6px}
+
+    /* ANIM */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+    /* RESPONSIVE */
+    @media(max-width:1060px){
+      .hero-body,.section-intro,.about-grid,.strip{grid-template-columns:1fr}
+      .svc-grid{grid-template-columns:repeat(2,1fr)}
+      .method-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:700px){
+      .hero{padding:38px 20px 44px;gap:48px}
+      .hero::before{inset:12px;border-radius:22px}
+      section,.cta{padding:56px 20px}
+      .nav{padding:10px 20px}
+      .svc-grid,.aud-grid,.method-grid{grid-template-columns:1fr}
+      .cta-box{padding:36px 22px}
+      .strip{padding:38px 20px;grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero" id="inicio">
+  <div class="hero-top">
+    <div class="brand-mark"><span class="brand-dot"></span>Jamile Abreu · A Patroa dos Empregos</div>
+    <div class="hero-pills">
+      <span class="mini-pill">Consultoria de Carreira</span>
+      <span class="mini-pill">Recolocação Estratégica</span>
+      <span class="mini-pill">Job Hunter</span>
+    </div>
+  </div>
+
+  <div class="hero-body">
+    <div>
+      <div class="eyebrow">Catálogo de Soluções Profissionais</div>
+      <h1>Transformo profissionais invisíveis em <em>procurados</em>.</h1>
+      <p class="hero-lead">Reposicionamento profissional, currículo estratégico, LinkedIn otimizado, preparação para entrevistas, busca ativa de vagas e conexão com empresas por meio de radar de oportunidades.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="https://wa.me/message/2ZNE6XDGWCHNH1" target="_blank">💬 Chamar no Zap</a>
+        <a class="btn btn-ghost" href="#servicos">Ver soluções</a>
+      </div>
+    </div>
+
+    <aside class="hero-aside">
+      <div class="aside-title">Do RH para a estratégia de carreira</div>
+      <p class="aside-desc">Mais de 16 anos de vivência em RH e recrutamento — usando a leitura real do mercado para ajudar profissionais a comunicarem valor com mais clareza, força e direção.</p>
+      <div class="stats">
+        <div class="stat"><strong>+16</strong><span>anos em RH</span></div>
+        <div class="stat"><strong>ATS</strong><span>currículo & SEO</span></div>
+        <div class="stat"><strong>RH</strong><span>bastidores reais</span></div>
+        <div class="stat"><strong>Job</strong><span>busca ativa</span></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<nav class="nav">
+  <a href="#quem-sou">Quem sou</a>
+  <a href="#servicos">Soluções</a>
+  <a href="#metodo">Método</a>
+  <a href="#publico">Para quem é</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<section class="about" id="quem-sou">
+  <div class="section-intro">
+    <div>
+      <div class="label">Quem sou eu</div>
+      <h2>Sou Jamile Abreu, a <em>Patroa dos Empregos</em>.</h2>
+    </div>
+    <p class="section-sub">Atuo na virada de chave entre experiência profissional e percepção de mercado. Meu trabalho não é apenas "arrumar currículo" — é construir uma apresentação profissional que faça sentido para recrutadores, empresas, ATS e decisores.</p>
+  </div>
+  <div class="about-grid">
+    <div class="sig-card">
+      <div>
+        <h3>Eu conheço os dois lados da mesa.</h3>
+        <p>Já estive no RH avaliando perfis, conduzindo processos seletivos e entendendo o que faz um candidato avançar ou ficar invisível. Hoje uso essa bagagem para reposicionar profissionais com método, estratégia e leitura real de mercado.</p>
+      </div>
+      <div class="signature">Jamile Abreu</div>
+    </div>
+    <div class="about-text">
+      <p><strong>Com mais de 16 anos em Recursos Humanos, Recrutamento e Seleção</strong>, ajudo profissionais a organizarem sua trajetória, fortalecerem sua comunicação de valor e se apresentarem com mais aderência às oportunidades certas.</p>
+      <p>Minha atuação envolve diagnóstico de carreira, reposicionamento, currículo, LinkedIn, plataformas ATS, preparação para entrevistas, busca ativa, networking estratégico e apresentação de talentos para empresas parceiras.</p>
+      <p>Na prática, eu traduzo sua experiência para a linguagem que o mercado entende. Porque competência sem posicionamento vira currículo parado, LinkedIn esquecido e candidatura sem retorno.</p>
+      <div class="badges">
+        <span class="badge">RH · recrutamento real</span>
+        <span class="badge">SEO · currículo & LinkedIn</span>
+        <span class="badge">Rede · empresas parceiras</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="section-intro">
+    <div>
+      <div class="label">O que eu faço</div>
+      <h2>Um catálogo para quem quer parar de buscar <em>no escuro</em>.</h2>
+    </div>
+    <p class="section-sub">Cada solução tem um papel dentro da jornada profissional: clareza, posicionamento, visibilidade, preparação e movimento de mercado. Aqui não tem mágica. Tem método, leitura de RH e execução estratégica.</p>
+  </div>
+  <div class="svc-grid">
+    <article class="svc"><span class="svc-num">01</span><span class="svc-tag">Reposicionamento</span><h3>Reposicionamento Profissional</h3><p>Diagnóstico da trajetória, definição de foco, narrativa de carreira e construção de posicionamento para crescimento, transição ou recolocação.</p><div class="svc-items"><div class="svc-item"><span class="chk">✓</span><span>Clareza de objetivo profissional</span></div><div class="svc-item"><span class="chk">✓</span><span>Leitura estratégica do perfil</span></div><div class="svc-item"><span class="chk">✓</span><span>Direcionamento para o mercado-alvo</span></div></div></article>
+    <article class="svc"><span class="svc-num">02</span><span class="svc-tag">Currículo</span><h3>Currículo Estratégico e ATS</h3><p>Construção ou reformulação de currículo com foco em leitura humana, compatibilidade com ATS, palavras-chave, resultados e comunicação de valor.</p><div class="svc-items"><div class="svc-item"><span class="chk">✓</span><span>Estrutura limpa e profissional</span></div><div class="svc-item"><span class="chk">✓</span><span>Palavras-chave por área e cargo</span></div><div class="svc-item"><span class="chk">✓</span><span>Resultados, entregas e impacto</span></div></div></article>
+    <article class="svc"><span class="svc-num">03</span><span class="svc-tag">LinkedIn</span><h3>LinkedIn Estratégico</h3><p>Otimização do perfil para aumentar clareza, autoridade, rastreabilidade e atratividade para recrutadores, empresas e decisores.</p><div class="svc-items"><div class="svc-item"><span class="chk">✓</span><span>Headline com posicionamento</span></div><div class="svc-item"><span class="chk">✓</span><span>Sobre profissional com narrativa</span></div><div class="svc-item"><span class="chk">✓</span><span>SEO para buscas de recrutadores</span></div></div></article>
+    <article class="svc"><span class="svc-num">04</span><span class="svc-tag">Entrevista</span><h3>Treinamento de Entrevista</h3><p>Preparação para entrevistas com foco em narrativa profissional, segurança, comunicação de resultados e respostas estratégicas.</p><div class="svc-items"><div class="svc-item"><span class="chk">✓</span><span>Apresentação pessoal profissional</span></div><div class="svc-item"><span class="chk">✓</span><span>Respostas comportamentais</span></div><div class="svc-item"><span class="chk">✓</span><span>Simulação e ajustes de postura</span></div></div></article>
+    <article class="svc"><span class="svc-num">05</span><span class="svc-tag">Job Hunter</span><h3>Busca Ativa de Vagas</h3><p>Mapeamento de oportunidades alinhadas ao perfil, com leitura de aderência, acompanhamento de movimentações e direcionamento de candidatura.</p><div class="svc-items"><div class="svc-item"><span class="chk">✓</span><span>Busca por cargo, área e região</span></div><div class="svc-item"><span class="chk">✓</span><span>Filtro de aderência com o perfil</span></div><div class="svc-item"><span class="chk">✓</span><span>Organização de oportunidades</span></div></div></article>
+    <article class="svc"><span class="svc-num">06</span><span class="svc-tag">Indicação</span><h3>Book de Talentos</h3><p>Curadoria de perfis profissionais para apresentação a empresas parceiras, RHs e decisores que buscam talentos alinhados às suas demandas.</p><div class="svc-items"><div class="svc-item"><span class="chk">✓</span><span>Perfil profissional organizado</span></div><div class="svc-item"><span class="chk">✓</span><span>Apresentação consultiva para empresas</span></div><div class="svc-item"><span class="chk">✓</span><span>Conexão sem promessa de contratação</span></div></div></article>
+  </div>
+</section>
+
+<section class="method" id="metodo">
+  <div class="section-intro">
+    <div>
+      <div class="label">Método proprietário</div>
+      <h2>Método <em>P.A.T.R.O.A.</em></h2>
+    </div>
+    <p class="section-sub">Uma estrutura para sair do improviso e construir uma presença profissional mais competitiva. A carreira precisa de direção, posicionamento e movimento — não de tentativa solta.</p>
+  </div>
+  <div class="method-grid">
+    <div class="m-card"><div class="m-letter">P</div><h3>Posicionamento</h3><p>Definição clara de foco, mercado-alvo e mensagem profissional.</p></div>
+    <div class="m-card"><div class="m-letter">A</div><h3>Ação</h3><p>Plano prático para movimentar a busca e sair da passividade.</p></div>
+    <div class="m-card"><div class="m-letter">T</div><h3>Técnicas</h3><p>Uso correto de currículo, LinkedIn, ATS, entrevistas e networking.</p></div>
+    <div class="m-card"><div class="m-letter">R</div><h3>Relacionamento</h3><p>Conexões estratégicas com recrutadores, empresas e decisores.</p></div>
+    <div class="m-card"><div class="m-letter">O</div><h3>Otimização</h3><p>Ajustes contínuos para aumentar aderência, clareza e visibilidade.</p></div>
+    <div class="m-card"><div class="m-letter">A</div><h3>Apresentação</h3><p>Comunicação profissional forte para candidatura, entrevista e mercado.</p></div>
+  </div>
+</section>
+
+<div class="strip">
+  <h2>Não é sobre enviar currículo para todo canto.</h2>
+  <p>É sobre entender qual é o seu mercado, como seu perfil está sendo lido e qual estratégia faz sentido para você ser percebido com mais força. A Patroa entra justamente nesse ponto: leitura, reposicionamento e movimento.</p>
+</div>
+
+<section class="audiences" id="publico">
+  <div class="section-intro">
+    <div>
+      <div class="label">Para quem é</div>
+      <h2>Soluções para profissionais <em>e</em> empresas.</h2>
+    </div>
+    <p class="section-sub">A atuação da Patroa conecta dois lados importantes: profissionais que precisam se posicionar melhor e empresas que precisam acessar bons talentos com mais agilidade e critério.</p>
+  </div>
+  <div class="aud-grid">
+    <div class="aud"><h3>Profissionais em recolocação</h3><p>Para quem está buscando voltar ao mercado com mais clareza, currículo forte, LinkedIn estratégico, candidatura direcionada e preparação para entrevistas.</p></div>
+    <div class="aud"><h3>Profissionais em transição</h3><p>Para quem quer mudar de área, reposicionar a carreira, comunicar melhor sua trajetória e construir uma ponte real para o próximo movimento.</p></div>
+    <div class="aud"><h3>Profissionais em crescimento</h3><p>Para quem está empregado, mas deseja valorização, promoção, mudança de empresa ou construção de uma marca profissional mais forte.</p></div>
+    <div class="aud"><h3>Empresas e RHs</h3><p>Para empresas que desejam receber perfis triados, conhecer talentos disponíveis ou estruturar ações humanizadas de apoio à carreira e transição profissional.</p></div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="cta-box">
+    <div class="label">Próximo passo</div>
+    <h2>Quer entender qual solução faz sentido para o seu momento?</h2>
+    <p>Me chama no WhatsApp e me conte em que fase você está: recolocação, transição, crescimento profissional, entrevista, LinkedIn, currículo ou busca ativa. A partir disso, eu te direciono com clareza.</p>
+    <div class="cta-btns">
+      <a class="btn btn-gold" href="https://wa.me/message/2ZNE6XDGWCHNH1" target="_blank">💬 Chamar no Zap</a>
+      <a class="btn btn-navy" href="mailto:carreira@jamileabreu.com.br">Enviar e-mail</a>
+    </div>
+    <div class="contacts">
+      <span class="chip">📱 (71) 99288-2255</span>
+      <span class="chip">📧 carreira@jamileabreu.com.br</span>
+      <span class="chip">🌐 www.jamileabreu.com.br</span>
+    </div>
+    <p class="fine">Observação importante: os serviços de reposicionamento, busca ativa, book de talentos e apresentação para empresas não garantem emprego, entrevista ou prazo de contratação. A entrega é estratégia, clareza, fortalecimento de posicionamento, visibilidade e conexão com oportunidades compatíveis.</p>
+  </div>
+</section>
+
+<footer>
+  <strong>A Patroa dos Empregos</strong>
+  Jamile Abreu · Consultoria de Carreira Estratégica · Reposicionamento Profissional · Job Hunter
+</footer>
+
+</body>
+</html>
